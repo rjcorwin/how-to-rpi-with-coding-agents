@@ -8,3 +8,29 @@
     1. complexity of the code base is increasing on each pull (spaghettification)
     2. context window of the agent is filling up so its getting dumber
     3. some speculate that it is in context learning to give you bad results
+- LLMs seem impressive and all-knowing, but they lack the context of your organization
+    - They are a new person on the job — they don't know what they don't know
+    - Every decision in software development requires organizational context: team conventions, business constraints, historical decisions, dependencies, user needs
+    - LLMs cannot hold that context in their heads — it's not in the training data, and it won't fit in a single prompt
+- Humans provide the engineering — LLMs provide pattern matching on what they've been trained on
+    - If the solution you need is outside the distribution of what the LLM has seen, its ability to engineer is quite limited
+    - Anything truly novel — something that has never been created before — requires human engineering judgment
+    - The LLM can help with the parts that look like things it's seen, but the creative leaps and novel architecture are yours
+- So the role of humans is twofold: providing the context of the organization, and engineering patterns outside the distribution of the training data
+- It is your job to translate organizational needs into the decisions being made while coding
+    - If you do not insert yourself into the decision-making process, the LLM will make a bad call
+    - Those bad calls compound — each wrong assumption becomes the foundation for the next decision, and the codebase drifts further from what your organization actually needs
+- Tickets rarely spell out every decision — and that's normal
+    - We write tickets with the minimum information needed for someone with organizational context to infer what decisions need to be made
+    - We don't make the decisions in the tickets — that's a big part of engineering
+    - The actual coding is only a small part of the work; the decision-making is where the real effort lives
+    - An LLM reading that ticket doesn't have the context to infer what you can — so it guesses, and it guesses wrong
+- This is why we don't just hand the LLM a task and say "go build it"
+    - Before coding or planning, we need to do the research ourselves and capture it in a way the LLM can use
+    - It's important that you are helping to define what questions need to be asked and what the options are
+    - LLMs can help you research and prototype on those options, helping you understand them better
+    - But they'll often have trouble coming up with the right questions and the right options — the obvious ones they'll get, and that will speed you up
+    - During your consideration of those decisions, you have to be ready to think outside that box — the non-obvious questions and options are where your engineering judgment matters most
+    - That's the role of a research.md — a document that gives the LLM the organizational context it's missing, so its decisions are grounded in reality instead of guesswork
+    - In fact, this research is valuable even without coding agents — a well-researched plan helps a human code through the task just as well
+    - And sometimes you should code it yourself — it's important to keep that skill sharpened
