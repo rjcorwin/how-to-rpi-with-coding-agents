@@ -4,9 +4,8 @@ Research, Plan, Implement (RPI) is a methodology for writing software with Agent
 
 1. **Research** — With AI's help, we create what equates to the ultimate ticket:
     1. The request
-    1. Documentation for the related parts of the code
-    2. Decisions we need to make
-
+    2. Documentation for the related parts of the code
+    3. Decisions we need to make
 2. **Plan** — We document the code changes required.
 3. **Implement** — We have the AI coding agent implement the plan.
 
