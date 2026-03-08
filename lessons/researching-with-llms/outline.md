@@ -12,6 +12,10 @@
     - They are a new person on the job — they don't know what they don't know
     - Every decision in software development requires organizational context: team conventions, business constraints, historical decisions, dependencies, user needs
     - LLMs cannot hold that context in their heads — it's not in the training data, and it won't fit in a single prompt
+- Humans provide the engineering — LLMs provide pattern matching on what they've been trained on
+    - If the solution you need is outside the distribution of what the LLM has seen, its ability to engineer is quite limited
+    - Anything truly novel — something that has never been created before — requires human engineering judgment
+    - The LLM can help with the parts that look like things it's seen, but the creative leaps and novel architecture are yours
 - It is your job to translate organizational needs into the decisions being made while coding
     - If you do not insert yourself into the decision-making process, the LLM will make a bad call
     - Those bad calls compound — each wrong assumption becomes the foundation for the next decision, and the codebase drifts further from what your organization actually needs
