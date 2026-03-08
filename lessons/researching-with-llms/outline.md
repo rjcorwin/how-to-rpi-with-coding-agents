@@ -3,34 +3,40 @@
 
 ## Intro
 
-- Prompting to implement has been equated to a slot machine. You keep pulling hoping to get lucky.
-- What is going on under the hood is
-    1. complexity of the code base is increasing on each pull (spaghettification)
-    2. context window of the agent is filling up so its getting dumber
-    3. some speculate that it is in context learning to give you bad results
-- LLMs seem impressive and all-knowing, but they lack the context of your organization
+### Today's topic: Research
+
+The first phase of Research->Plan->Implement (RPI), where we create what equates to the ultimate ticket that we never take the time to write. 
+
+During this phase we create with AI's help:
+
+1. The request
+1. Documention for the related parts of the code.
+2. Decisions we need to make
+
+### The prompting spiral
+Prompting to implement has been equated to a slot machine. You keep pulling hoping to get lucky. When it doesn't give you the results you want, you start pulling again with prompts like "No not that, this", and the agent responds, "Of course!". 
+
+What is happening during this spiral:
+0. The models are trained to do what you request, and their praise of the request is sycophantic.
+1. complexity of the code base is increasing on each pull (spaghettification)
+2. context window of the agent is filling up so its getting dumber
+3. some speculate that it is in context learning to give you bad results
+
+### What is our role?
+LLMs seem impressive and all-knowing, but they are not replacing us for two reasons. We must be the decision makers for two reasons.
+
+1. they lack the context of your organization, we provide it
     - They are a new person on the job — they don't know what they don't know
     - Every decision in software development requires organizational context: team conventions, business constraints, historical decisions, dependencies, user needs
     - LLMs cannot hold that context in their heads — it's not in the training data, and it won't fit in a single prompt
-- Humans provide the engineering — LLMs provide pattern matching on what they've been trained on
+2. Humans provide the engineering — LLMs provide pattern matching on what they've been trained on
     - If the solution you need is outside the distribution of what the LLM has seen, its ability to engineer is quite limited
     - Anything truly novel — something that has never been created before — requires human engineering judgment
     - The LLM can help with the parts that look like things it's seen, but the creative leaps and novel architecture are yours
-- So the role of humans is twofold: providing the context of the organization, and engineering patterns outside the distribution of the training data
-- It is your job to translate organizational needs into the decisions being made while coding
-    - If you do not insert yourself into the decision-making process, the LLM will make a bad call
-    - Those bad calls compound — each wrong assumption becomes the foundation for the next decision, and the codebase drifts further from what your organization actually needs
-- Tickets rarely spell out every decision — and that's normal
-    - We write tickets with the minimum information needed for someone with organizational context to infer what decisions need to be made
-    - We don't make the decisions in the tickets — that's a big part of engineering
-    - The actual coding is only a small part of the work; the decision-making is where the real effort lives
-    - An LLM reading that ticket doesn't have the context to infer what you can — so it guesses, and it guesses wrong
-- This is why we don't just hand the LLM a task and say "go build it"
-    - Before coding or planning, we need to do the research ourselves and capture it in a way the LLM can use
-    - It's important that you are helping to define what questions need to be asked and what the options are
-    - LLMs can help you research and prototype on those options, helping you understand them better
-    - But they'll often have trouble coming up with the right questions and the right options — the obvious ones they'll get, and that will speed you up
-    - During your consideration of those decisions, you have to be ready to think outside that box — the non-obvious questions and options are where your engineering judgment matters most
-    - That's the role of a research.md — a document that gives the LLM the organizational context it's missing, so its decisions are grounded in reality instead of guesswork
-    - In fact, this research is valuable even without coding agents — a well-researched plan helps a human code through the task just as well
-    - And sometimes you should code it yourself — it's important to keep that skill sharpened
+
+
+## Let's research!
+
+Let's start with a simple example. This will be a bit contrived since we want to focus on the prompting required to keep us in the loop and not get too in the weeds on the architecture of a system you're unfamiliar with. The goal is that you'll then be able to take these prompts and then dig in on a task related to your domain.
+
+We'll start by generating a simple todo app and then apply our research prompts in service of adding a dark mode/light mode switcher for the application.
