@@ -1,19 +1,21 @@
-# Researching with Coding Agents
+# RPI with Coding Agents
 
 
 ## Intro
 
-### Today's topic: Research
+### Research, Plan, Implement
 
-The first phase of Research->Plan->Implement (RPI), where we create what equates to the ultimate ticket that we never take the time to write. 
+Today we'll cover Research->Plan->Implement (RPI) methodology for writing software with Agentic Coding Tools.
+ 
+1. During research phase we create with AI's help, we'll create what equates to the ultimate ticket:
+    1. The request
+    1. Documention for the related parts of the code.
+    2. Decisions we need to make
 
-During this phase we create with AI's help:
+2. During plan phase we'll document the code changes required.
+3. Lastly, we'll have the ai coding agent implement the plan.
 
-1. The request
-1. Documention for the related parts of the code.
-2. Decisions we need to make
-
-### The prompting spiral
+### Background: Avoding rework 
 Prompting to implement has been equated to a slot machine. You keep pulling hoping to get lucky. When it doesn't give you the results you want, you start pulling again with prompts like "No not that, this", and the agent responds, "Of course!". 
 
 What is happening during this spiral:
@@ -21,6 +23,8 @@ What is happening during this spiral:
 1. complexity of the code base is increasing on each pull (spaghettification)
 2. context window of the agent is filling up so its getting dumber
 3. some speculate that it is in context learning to give you bad results
+
+The goal of some up front planning is to minimize rework to prevent spirals.
 
 ### What is our role?
 LLMs seem impressive and all-knowing, but they are not replacing us for two reasons. We must be the decision makers for two reasons.
