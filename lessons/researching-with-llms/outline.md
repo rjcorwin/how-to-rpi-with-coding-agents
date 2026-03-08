@@ -27,7 +27,10 @@
     - An LLM reading that ticket doesn't have the context to infer what you can — so it guesses, and it guesses wrong
 - This is why we don't just hand the LLM a task and say "go build it"
     - Before coding or planning, we need to do the research ourselves and capture it in a way the LLM can use
-    - We can lean on LLMs to help us research — exploring options, surfacing trade-offs, flushing out what decisions need to be made before we start coding
+    - It's important that you are helping to define what questions need to be asked and what the options are
+    - LLMs can help you research and prototype on those options, helping you understand them better
+    - But they'll often have trouble coming up with the right questions and the right options — the obvious ones they'll get, and that will speed you up
+    - During your consideration of those decisions, you have to be ready to think outside that box — the non-obvious questions and options are where your engineering judgment matters most
     - That's the role of a research.md — a document that gives the LLM the organizational context it's missing, so its decisions are grounded in reality instead of guesswork
     - In fact, this research is valuable even without coding agents — a well-researched plan helps a human code through the task just as well
     - And sometimes you should code it yourself — it's important to keep that skill sharpened
