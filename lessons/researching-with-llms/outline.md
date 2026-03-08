@@ -16,6 +16,7 @@
     - If the solution you need is outside the distribution of what the LLM has seen, its ability to engineer is quite limited
     - Anything truly novel — something that has never been created before — requires human engineering judgment
     - The LLM can help with the parts that look like things it's seen, but the creative leaps and novel architecture are yours
+- So the role of humans is twofold: providing the context of the organization, and engineering patterns outside the distribution of the training data
 - It is your job to translate organizational needs into the decisions being made while coding
     - If you do not insert yourself into the decision-making process, the LLM will make a bad call
     - Those bad calls compound — each wrong assumption becomes the foundation for the next decision, and the codebase drifts further from what your organization actually needs
