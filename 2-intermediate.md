@@ -26,6 +26,8 @@ mkdir -p plans/x7k-dark-mode
 git checkout -b x7k-dark-mode
 ```
 
+> **Don't want CONTRIBUTING.md in your repo?** You can add these workflow instructions as a Claude skill instead — just ask Claude to do it for you.
+
 ## Research
 
 ### AI:Work — Write research.md
