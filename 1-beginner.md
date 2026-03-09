@@ -58,6 +58,8 @@ Go with localStorage. Update research.md to record this decision under the open 
 
 Repeat for each open question: ask for options, review them, decide, and have the agent update the doc. By the end, every open question in `research.md` should have a decision recorded next to it.
 
+**Clear the context before moving on.** Run `/clear` in Claude Code. This keeps the next phase focused and prevents the agent from carrying forward assumptions from the research conversation.
+
 ## Plan
 
 Now that we have research with decisions made, we ask the AI to write a concrete plan.
@@ -71,6 +73,8 @@ Read research.md. Based on the decisions documented there, write a plan.md that 
 ```
 
 **Review the plan.** Does it match your decisions? Does anything look wrong or overcomplicated? Edit it if needed. This is your last checkpoint before code gets written.
+
+**Clear the context before moving on.** Run `/clear` in Claude Code.
 
 ## Implement
 
