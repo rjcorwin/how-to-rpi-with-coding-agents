@@ -218,4 +218,10 @@ if [ "$PUSH" = true ]; then
 
   cd "$REPO_ROOT"
   echo "Deployed to gh-pages."
+  rm -rf "$SITE_DIR" "$REPO_ROOT/node_modules"
+  echo "Cleaned up _site/ and node_modules/."
+else
+  echo ""
+  echo "To publish, run: ./build-site.sh --push"
+  echo "To review locally, open: $SITE_DIR/index.html"
 fi
