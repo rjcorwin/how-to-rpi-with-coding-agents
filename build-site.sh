@@ -30,7 +30,7 @@ rm -rf "$SITE_DIR"
 mkdir -p "$SITE_DIR"
 
 # Pages to include (order matters for nav)
-PAGES=(README beginner intermediate advanced CONTRIBUTING)
+PAGES=(README 1-beginner 2-intermediate 3-advanced CONTRIBUTING)
 
 # Convert markdown to HTML using node + marked
 convert_md() {
@@ -156,9 +156,9 @@ convert_md() {
   <nav>
     <span class="brand">RPI with Coding Agents</span>
     <a href="index.html">Home</a>
-    <a href="beginner.html">Beginner</a>
-    <a href="intermediate.html">Intermediate</a>
-    <a href="advanced.html">Advanced</a>
+    <a href="1-beginner.html">Beginner</a>
+    <a href="2-intermediate.html">Intermediate</a>
+    <a href="3-advanced.html">Advanced</a>
     <a href="CONTRIBUTING.html">Contributing</a>
   </nav>
   <main>

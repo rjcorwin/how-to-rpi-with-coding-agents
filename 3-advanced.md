@@ -1,10 +1,10 @@
 # RPI Guide: Advanced
 
-Builds on the [intermediate track](intermediate.md) by automating the AI work-review-gate cycles using the [cook](https://github.com/rjcorwin/cook) CLI. Instead of manually running three prompts per phase, you run one command and cook loops the agent through work, review, and gate until it's satisfied.
+Builds on the [intermediate track](2-intermediate.md) by automating the AI work-review-gate cycles using the [cook](https://github.com/rjcorwin/cook) CLI. Instead of manually running three prompts per phase, you run one command and cook loops the agent through work, review, and gate until it's satisfied.
 
 ## Prerequisites
 
-- Complete the [intermediate track](intermediate.md) (or at least read it — you need to understand the loop you're automating)
+- Complete the [intermediate track](2-intermediate.md) (or at least read it — you need to understand the loop you're automating)
 - Read [CONTRIBUTING.md](CONTRIBUTING.md)
 - Install [cook](https://github.com/rjcorwin/cook): `npm install -g @anthropic/cook`
 - Run `cook doctor` to verify your setup
@@ -47,7 +47,7 @@ Cook will:
 
 If the gate says "ITERATE", cook loops back automatically. When it says "DONE", you get the result.
 
-**Human:Review** — You still make the decisions. For each open question, ask the AI to present options with pros and cons, pick one, and have the agent update `research.md` with your decision. (Same process as the [beginner](beginner.md#making-decisions) and [intermediate](intermediate.md#humanreview--your-turn) tracks.)
+**Human:Review** — You still make the decisions. For each open question, ask the AI to present options with pros and cons, pick one, and have the agent update `research.md` with your decision. (Same process as the [beginner](1-beginner.md#making-decisions) and [intermediate](2-intermediate.md#humanreview--your-turn) tracks.)
 
 ## Plan — One cook command
 

@@ -118,4 +118,4 @@ We produced the ultimate ticket before writing any code:
 
 Each phase built on the last, and we stayed in control of the decisions that matter.
 
-Ready for more structure? Move on to the [Intermediate Guide](intermediate.md).
+Ready for more structure? Move on to the [Intermediate Guide](2-intermediate.md).

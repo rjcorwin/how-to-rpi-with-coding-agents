@@ -1,10 +1,10 @@
 # RPI Guide: Intermediate
 
-Builds on the [beginner track](beginner.md) by adding: structured plan folders, a CONTRIBUTING.md with templates, and AI self-review loops that catch gaps before you spend time reviewing.
+Builds on the [beginner track](1-beginner.md) by adding: structured plan folders, a CONTRIBUTING.md with templates, and AI self-review loops that catch gaps before you spend time reviewing.
 
 ## Prerequisites
 
-- Complete the [beginner track](beginner.md) or understand the basics of Research, Plan, Implement
+- Complete the [beginner track](1-beginner.md) or understand the basics of Research, Plan, Implement
 - Read [CONTRIBUTING.md](CONTRIBUTING.md) — it defines the full file structure, workflow steps, and templates used in this track
 
 ## Step 0: Generate the todo app
@@ -142,4 +142,4 @@ Read CONTRIBUTING.md for context. Read plans/x7k-dark-mode/devlog-001.md and pla
 
 Test the implementation. Review the PR description. Merge when satisfied.
 
-Ready to automate the loops? Move on to the [Advanced Guide](advanced.md).
+Ready to automate the loops? Move on to the [Advanced Guide](3-advanced.md).
