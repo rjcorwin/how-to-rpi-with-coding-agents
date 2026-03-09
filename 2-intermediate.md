@@ -30,7 +30,7 @@ git checkout -b x7k-dark-mode
 
 ## Research
 
-The intermediate track adds a work-review-gate loop around each phase. The reason: the first pass from a coding agent often has gaps — missing context, shallow analysis, overlooked edge cases. These gaps aren't worth your time to catch manually, and you might miss them anyway. So before you ever look at the output, we have the AI review its own work and decide if it's ready. You only step in once the loop says it's done.
+The intermediate track adds a work-review-gate loop (that we'll refer to as a cook loop) around each phase. The reason: the first pass from a coding agent often has gaps — missing context, shallow analysis, overlooked edge cases. These gaps aren't worth your time to catch manually, and you might miss them anyway. So before you ever look at the output, we have the AI review its own work and decide if it's ready. You only step in once the loop says it's done.
 
 Each step runs in a fresh context. Run `/clear` between them.
 
@@ -128,6 +128,8 @@ If the gate says revision is needed, run `/clear`, go back to AI:Work, and addre
 
 Read the plan. Does it match your research decisions? Is anything overcomplicated or missing? Edit and approve before moving on.
 
+**Run `/clear`.**
+
 ## Implement
 
 ### AI:Work — Implement and write devlog
@@ -145,7 +147,7 @@ Implement the plan. When done, write plans/x7k-dark-mode/devlog-001.md covering 
 
 **Prompt:**
 ```
-Read CONTRIBUTING.md for context. Review the implementation against plans/x7k-dark-mode/plan.md and write plans/x7k-dark-mode/code-review-001.md following the template.
+Review the implementation against plans/x7k-dark-mode/plan.md, read the latest devlog in the plan for context on how implementation went, read through the implementation's code changes, and then write a code review file in the plan folder per CONTRIBUTING.md
 ```
 
 **Run `/clear`.**
