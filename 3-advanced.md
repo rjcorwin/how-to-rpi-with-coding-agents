@@ -91,3 +91,30 @@ done
 | Plan execution | One big implement prompt | One cook command per plan step |
 
 The human checkpoints don't change. You still make the decisions, review the research, approve the plan, and test the implementation. Cook just removes the mechanical overhead of running the agent loop yourself.
+
+## Iterating back to Research
+
+Sometimes implementation reveals decisions that were never made explicitly — they got made on the fly, buried in code. When the debrief surfaces judgment calls you didn't anticipate, don't patch over it. Reset and run the loop with what you learned.
+
+### Step 1: Extract the implicit decisions
+
+Read the debrief. For each judgment call the agent made, add it to `research.md` as a resolved open question.
+
+```bash
+cook "Based on the devlog, add any decisions you made during implementation to plans/x7k-dark-mode/research.md as resolved open questions."
+```
+
+Review what it added. Correct any decisions you'd make differently.
+
+### Step 2: Revert the implementation and delete the plan
+
+```bash
+git checkout .
+rm plans/x7k-dark-mode/plan.md
+```
+
+`research.md` is untracked or committed separately — only the code changes get discarded.
+
+### Step 3: Re-run the loop
+
+Run `/clear`, then go straight to the Plan phase. Research is already done — `research.md` now has the full picture including decisions from the first pass. The second implementation starts with a complete picture, so the agent isn't guessing and neither are you.
