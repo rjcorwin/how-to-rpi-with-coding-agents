@@ -34,14 +34,14 @@ git checkout -b x7k-dark-mode
 
 **Prompt:**
 ```
-Read CONTRIBUTING.md for context. You are starting research for adding a dark mode / light mode toggle to our todo app.
+We're going to add a dark mode / light mode toggle to our todo app.
 
 Requirements:
 - User can switch between dark and light themes
 - The toggle should be visible and accessible
 - Theme preference should persist across page reloads
 
-Read the existing codebase first, then write plans/x7k-dark-mode/research.md covering requirements, system architecture, constraints, prior art, and open questions.
+Read the existing codebase first, create a new plan folder and research.md per CONTRIBUTING.md.
 ```
 
 Same output expectations as the beginner track, but now following the structured template from CONTRIBUTING.md.

@@ -31,14 +31,14 @@ git checkout -b x7k-dark-mode
 In the intermediate track, the research phase was three manual prompts (work, review, gate) with potential loops back. Cook automates this entire cycle:
 
 ```bash
-cook "Read CONTRIBUTING.md for context. You are starting research for adding a dark mode / light mode toggle to our todo app.
+cook "We're going to add a dark mode / light mode toggle to our todo app.
 
 Requirements:
 - User can switch between dark and light themes
 - The toggle should be visible and accessible
 - Theme preference should persist across page reloads
 
-Read the existing codebase first, then write plans/x7k-dark-mode/research.md covering requirements, system architecture, constraints, prior art, and open questions."
+Read the existing codebase first, then write plans/x7k-dark-mode/research.md per CONTRIBUTING.md."
 ```
 
 Cook will:
