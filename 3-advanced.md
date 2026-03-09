@@ -21,6 +21,7 @@ Create a simple todo app using HTML, CSS, and vanilla JavaScript in a single ind
 ## Step 1: Set up the plan folder
 
 ```bash
+curl https://gist.githubusercontent.com/rjcorwin/296885590dc8a4ebc64e70879dc04a0f/raw/46035954b5a0423c0c62b96c3ff8e9295169bf4f/CONTRIBUTING.md > CONTRIBUTING.md
 mkdir -p plans/x7k-dark-mode
 git checkout -b x7k-dark-mode
 ```
