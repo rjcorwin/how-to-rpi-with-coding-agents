@@ -39,7 +39,7 @@ LLMs seem impressive and all-knowing, but they are not replacing us. We must be 
 This walkthrough comes in three levels. Pick the one that fits:
 
 - **[Beginner](1-beginner.md)** — Simplified prompts, flat file structure, no agent review loops. Good for getting the feel of RPI.
-- **[Intermediate](2-intermediate.md)** — Adds structured plan folders, CONTRIBUTING.md conventions, and AI self-review loops. Good for real projects.
+- **[Intermediate](2-intermediate.md)** — Adds structured plan folders, [CONTRIBUTING.md](https://gist.github.com/rjcorwin/296885590dc8a4ebc64e70879dc04a0f) conventions, and AI self-review loops. Good for real projects.
 - **[Advanced](3-advanced.md)** — Automates the agent review cycles using the [cook](https://github.com/rjcorwin/cook) CLI. Good for when you trust the process and want speed.
 
 Learn about the theory behind RPI from Dax: https://www.youtube.com/watch?v=rmvDxxNubIg

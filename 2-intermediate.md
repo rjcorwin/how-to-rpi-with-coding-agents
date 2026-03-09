@@ -5,7 +5,7 @@ Builds on the [beginner track](1-beginner.md) by adding: structured plan folders
 ## Prerequisites
 
 - Complete the [beginner track](1-beginner.md) or understand the basics of Research, Plan, Implement
-- Read [CONTRIBUTING.md](CONTRIBUTING.md) — it defines the full file structure, workflow steps, and templates used in this track
+- Read [CONTRIBUTING.md](https://gist.github.com/rjcorwin/296885590dc8a4ebc64e70879dc04a0f) — it defines the full file structure, workflow steps, and templates used in this track
 
 ## Step 0: Generate the todo app
 

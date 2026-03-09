@@ -5,7 +5,7 @@ Builds on the [intermediate track](2-intermediate.md) by automating the AI work-
 ## Prerequisites
 
 - Complete the [intermediate track](2-intermediate.md) (or at least read it — you need to understand the loop you're automating)
-- Read [CONTRIBUTING.md](CONTRIBUTING.md)
+- Read [CONTRIBUTING.md](https://gist.github.com/rjcorwin/296885590dc8a4ebc64e70879dc04a0f)
 - Install [cook](https://github.com/rjcorwin/cook): `npm install -g @anthropic/cook`
 - Run `cook doctor` to verify your setup
 

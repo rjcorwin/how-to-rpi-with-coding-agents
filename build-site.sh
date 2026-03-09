@@ -30,7 +30,7 @@ rm -rf "$SITE_DIR"
 mkdir -p "$SITE_DIR"
 
 # Pages to include (order matters for nav)
-PAGES=(README 1-beginner 2-intermediate 3-advanced CONTRIBUTING)
+PAGES=(README 1-beginner 2-intermediate 3-advanced)
 
 # Convert markdown to HTML using node + marked
 convert_md() {
@@ -159,7 +159,7 @@ convert_md() {
     <a href="1-beginner.html">Beginner</a>
     <a href="2-intermediate.html">Intermediate</a>
     <a href="3-advanced.html">Advanced</a>
-    <a href="CONTRIBUTING.html">Contributing</a>
+    <a href="https://gist.github.com/rjcorwin/296885590dc8a4ebc64e70879dc04a0f">Contributing</a>
   </nav>
   <main>
 HTMLEOF
