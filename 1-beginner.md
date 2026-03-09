@@ -31,7 +31,7 @@ Requirements:
 Read the existing codebase first, then write a research.md file covering:
 - What are the requirements?
 - How is the current code structured? What parts would this feature touch?
-- What decisions do we need to make before building this? List them as open questions.
+- What decisions do we need to make before building this? List them as open questions, and for each question list the options with pros and cons.
 ```
 
 **What to look for in the output:**
@@ -49,28 +49,7 @@ These open questions are the whole point. The AI is surfacing decisions *for you
 
 ### Making decisions
 
-Now it's time to decide. Pick an open question from the research doc and ask the AI to lay out your options.
-
-**Prompt:**
-```
-In research.md, you raised the question of where to store the theme preference. Give me the options with pros and cons for each.
-```
-
-The AI should come back with something like:
-
-> **Option 1: localStorage**
-> - Pros: Simple, no server needed, persists across sessions
-> - Cons: Per-browser only, cleared if user clears site data
->
-> **Option 2: Cookie**
-> - Pros: Sent with requests (useful for SSR), works across subdomains
-> - Cons: Overkill for a static app, size limits, privacy implications
->
-> **Option 3: Server-side (database)**
-> - Pros: Syncs across devices
-> - Cons: Requires auth, backend infrastructure — way too heavy for this
-
-Now you pick. Tell the agent your decision and have it record it:
+Now it's time to decide. The research doc already has the options and tradeoffs laid out — read through them and pick one for each open question. Then tell the agent your decisions and have it record them:
 
 **Prompt:**
 ```
