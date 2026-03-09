@@ -52,11 +52,11 @@ Same output expectations as the beginner track, but now following the structured
 
 **Run `/clear`.**
 
-### AI:Review — Write research-review-001.md
+### AI:Review — Write research review
 
 **Prompt:**
 ```
-Read CONTRIBUTING.md for context. Review plans/x7k-dark-mode/research.md and write plans/x7k-dark-mode/research-review-001.md following the template.
+Read CONTRIBUTING.md for context. Review plans/x7k-dark-mode/research.md and write a research review in the plan folder per CONTRIBUTING.md.
 ```
 
 The review should flag:
@@ -70,7 +70,7 @@ The review should flag:
 
 **Prompt:**
 ```
-Read CONTRIBUTING.md for context. Read plans/x7k-dark-mode/research.md and plans/x7k-dark-mode/research-review-001.md. Are there any High gaps or unresolved questions? If yes, summarize what needs revision. If no, confirm ready for human review.
+Read CONTRIBUTING.md for context. Read plans/x7k-dark-mode/research.md and the latest research review in plans/x7k-dark-mode/. Are there any High gaps or unresolved questions? If yes, summarize what needs revision. If no, confirm ready for human review.
 ```
 
 If the gate says revision is needed, run `/clear`, go back to AI:Work, and have the AI address the gaps. If it passes, move on.
@@ -106,11 +106,11 @@ Write plans/x7k-dark-mode/plan.md detailing the implementation approach.
 
 **Run `/clear`.**
 
-### AI:Review — Write plan-review-001.md
+### AI:Review — Write plan review
 
 **Prompt:**
 ```
-Read CONTRIBUTING.md for context. Review plans/x7k-dark-mode/plan.md against plans/x7k-dark-mode/research.md and write plans/x7k-dark-mode/plan-review-001.md following the template.
+Read CONTRIBUTING.md for context. Review the latest plan in plans/x7k-dark-mode/ against plans/x7k-dark-mode/research.md and write a plan review in the plan folder per CONTRIBUTING.md.
 ```
 
 **Run `/clear`.**
@@ -119,7 +119,7 @@ Read CONTRIBUTING.md for context. Review plans/x7k-dark-mode/plan.md against pla
 
 **Prompt:**
 ```
-Read CONTRIBUTING.md for context. Read plans/x7k-dark-mode/plan.md and plans/x7k-dark-mode/plan-review-001.md. Are there any High concerns? If yes, summarize what needs revision. If no, confirm ready for human review.
+Read CONTRIBUTING.md for context. Read the latest plan and latest plan review in plans/x7k-dark-mode/. Are there any High concerns? If yes, summarize what needs revision. If no, confirm ready for human review.
 ```
 
 If the gate says revision is needed, run `/clear`, go back to AI:Work, and address the gaps. If it passes, move on.
@@ -138,12 +138,12 @@ Read the plan. Does it match your research decisions? Is anything overcomplicate
 ```
 Read CONTRIBUTING.md for context. Read the latest plan in plans/x7k-dark-mode/.
 
-Implement the plan. When done, write plans/x7k-dark-mode/devlog-001.md covering what was done, tricky parts, and any decisions made.
+Implement the plan. When done, write a new devlog in the plan folder per CONTRIBUTING.md covering what was done, tricky parts, and any decisions made.
 ```
 
 **Run `/clear`.**
 
-### AI:Review — Write code-review-001.md
+### AI:Review — Write code review
 
 **Prompt:**
 ```
@@ -156,7 +156,7 @@ Review the implementation against plans/x7k-dark-mode/plan.md, read the latest d
 
 **Prompt:**
 ```
-Read CONTRIBUTING.md for context. Read plans/x7k-dark-mode/devlog-001.md and plans/x7k-dark-mode/code-review-001.md. Are there any High issues? If yes, write plans/x7k-dark-mode/plan-001.md with fixes needed. If no, write plans/x7k-dark-mode/pr.md and confirm ready for human review.
+Read CONTRIBUTING.md for context. Read the latest devlog and latest code review in plans/x7k-dark-mode/. Are there any High issues? If yes, write a new plan in the plan folder with fixes needed. If no, write plans/x7k-dark-mode/pr.md and confirm ready for human review.
 ```
 
 ### Human:Review — Final approval
