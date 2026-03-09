@@ -136,7 +136,7 @@ Read the plan. Does it match your research decisions? Is anything overcomplicate
 
 **Prompt:**
 ```
-Read CONTRIBUTING.md for context. Read plans/x7k-dark-mode/plan.md.
+Read CONTRIBUTING.md for context. Read the latest plan in plans/x7k-dark-mode/.
 
 Implement the plan. When done, write plans/x7k-dark-mode/devlog-001.md covering what was done, tricky parts, and any decisions made.
 ```
