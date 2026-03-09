@@ -30,6 +30,10 @@ git checkout -b x7k-dark-mode
 
 ## Research
 
+The intermediate track adds a work-review-gate loop around each phase. The reason: the first pass from a coding agent often has gaps — missing context, shallow analysis, overlooked edge cases. These gaps aren't worth your time to catch manually, and you might miss them anyway. So before you ever look at the output, we have the AI review its own work and decide if it's ready. You only step in once the loop says it's done.
+
+Each step runs in a fresh context. Run `/clear` between them.
+
 ### AI:Work — Write research.md
 
 **Prompt:**
@@ -46,9 +50,9 @@ Read the existing codebase first, create a new plan folder and research.md per C
 
 Same output expectations as the beginner track, but now following the structured template from CONTRIBUTING.md.
 
-### AI:Review — Write research-review-001.md
+**Run `/clear`.**
 
-Now we have the AI review its own work. This is a quality gate — a second pass to catch gaps before you spend your time reviewing.
+### AI:Review — Write research-review-001.md
 
 **Prompt:**
 ```
@@ -60,6 +64,8 @@ The review should flag:
 - **Medium** gaps (important but not blocking)
 - **Low** gaps (nice-to-have)
 
+**Run `/clear`.**
+
 ### AI:Gate — Should we revise?
 
 **Prompt:**
@@ -67,7 +73,7 @@ The review should flag:
 Read CONTRIBUTING.md for context. Read plans/x7k-dark-mode/research.md and plans/x7k-dark-mode/research-review-001.md. Are there any High gaps or unresolved questions? If yes, summarize what needs revision. If no, confirm ready for human review.
 ```
 
-If the gate says revision is needed, go back to AI:Work and have the AI address the gaps. If it passes, move on.
+If the gate says revision is needed, run `/clear`, go back to AI:Work, and have the AI address the gaps. If it passes, move on.
 
 ### Human:Review — Your turn
 
@@ -98,6 +104,8 @@ Read CONTRIBUTING.md for context. Read plans/x7k-dark-mode/research.md for decis
 Write plans/x7k-dark-mode/plan.md detailing the implementation approach.
 ```
 
+**Run `/clear`.**
+
 ### AI:Review — Write plan-review-001.md
 
 **Prompt:**
@@ -105,12 +113,16 @@ Write plans/x7k-dark-mode/plan.md detailing the implementation approach.
 Read CONTRIBUTING.md for context. Review plans/x7k-dark-mode/plan.md against plans/x7k-dark-mode/research.md and write plans/x7k-dark-mode/plan-review-001.md following the template.
 ```
 
+**Run `/clear`.**
+
 ### AI:Gate — Should we revise?
 
 **Prompt:**
 ```
 Read CONTRIBUTING.md for context. Read plans/x7k-dark-mode/plan.md and plans/x7k-dark-mode/plan-review-001.md. Are there any High concerns? If yes, summarize what needs revision. If no, confirm ready for human review.
 ```
+
+If the gate says revision is needed, run `/clear`, go back to AI:Work, and address the gaps. If it passes, move on.
 
 ### Human:Review — Approve the plan
 
@@ -127,12 +139,16 @@ Read CONTRIBUTING.md for context. Read plans/x7k-dark-mode/plan.md.
 Implement the plan. When done, write plans/x7k-dark-mode/devlog-001.md covering what was done, tricky parts, and any decisions made.
 ```
 
+**Run `/clear`.**
+
 ### AI:Review — Write code-review-001.md
 
 **Prompt:**
 ```
 Read CONTRIBUTING.md for context. Review the implementation against plans/x7k-dark-mode/plan.md and write plans/x7k-dark-mode/code-review-001.md following the template.
 ```
+
+**Run `/clear`.**
 
 ### AI:Gate — Ship it?
 
