@@ -1,14 +1,14 @@
 # RPI Guide: Intermediate
 
-The [beginner track](1-beginner.md) gave you the shape of RPI — research, plan, implement — with you reviewing the output at each phase. That works, but it has a problem: the first pass from a coding agent often has gaps — missing context, shallow analysis, overlooked edge cases. You might catch them in review. You might not. Either way, it's your time spent on something the AI could have caught itself.
+The [beginner track](../1-beginner/) gave you the shape of RPI — research, plan, implement — with you reviewing the output at each phase. That works, but it has a problem: the first pass from a coding agent often has gaps — missing context, shallow analysis, overlooked edge cases. You might catch them in review. You might not. Either way, it's your time spent on something the AI could have caught itself.
 
 The intermediate track fixes this by wrapping each phase in a work-review-gate loop (that we'll refer to as a cook loop). Before you ever look at the output, the AI reviews its own work and decides if it's ready. You only step in once the loop says it's done. Alongside this, we introduce structured plan folders and a [CONTRIBUTING.md](https://gist.github.com/rjcorwin/296885590dc8a4ebc64e70879dc04a0f) with templates — so every feature has a consistent home for its research, decisions, and implementation history.
 
-Running the loop manually means a fair amount of prompting. That's intentional here — understanding each step makes the process legible before you automate it. The [advanced track](3-advanced.md) handles the loops for you.
+Running the loop manually means a fair amount of prompting. That's intentional here — understanding each step makes the process legible before you automate it. The [advanced track](../3-advanced/) handles the loops for you.
 
 ## Prerequisites
 
-- Complete the [beginner track](1-beginner.md) or understand the basics of Research, Plan, Implement
+- Complete the [beginner track](../1-beginner/) or understand the basics of Research, Plan, Implement
 - Read [CONTRIBUTING.md](https://gist.github.com/rjcorwin/296885590dc8a4ebc64e70879dc04a0f) — it defines the full file structure, workflow steps, and templates used in this track
 
 ## Step 0: Generate the todo app
@@ -156,4 +156,4 @@ Read the latest devlog and latest code review in plans/x7k-dark-mode/. Are there
 
 Test the implementation. Review the PR description. Merge when satisfied.
 
-Ready to automate the loops? Move on to the [Advanced Guide](3-advanced.md).
+Ready to automate the loops? Move on to the [Advanced Guide](../3-advanced/).

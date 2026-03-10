@@ -177,13 +177,14 @@ HTMLEOF
 
 # Build each page
 for page in "${PAGES[@]}"; do
-  md_file="$REPO_ROOT/${page}.md"
   if [ "$page" = "README" ]; then
+    md_file="$REPO_ROOT/README.md"
     html_file="$SITE_DIR/index.html"
   else
+    md_file="$REPO_ROOT/${page}/README.md"
     html_file="$SITE_DIR/${page}.html"
   fi
-  echo "Building: ${page}.md -> $(basename "$html_file")"
+  echo "Building: ${md_file#$REPO_ROOT/} -> $(basename "$html_file")"
   convert_md "$md_file" "$html_file"
 done
 

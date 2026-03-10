@@ -92,7 +92,7 @@ What work did you do, what were the tricky parts, and what decisions did you hav
 
 This is how you catch surprises. If the agent had to make a judgment call or hit something unexpected, you want to know before it's worth your time testing and reading the code — and in the worst case, before you ship a decision you didn't realize was made. Review the debrief, then test the app: toggle the theme, reload the page, check that preference persists. Lastly, review the code.
 
-If decisions surfaced during implementation that weren't in the research, the right move is to reset the implementation and go back to research with what you now know. The [advanced track](3-advanced.md) covers how to handle that loop.
+If decisions surfaced during implementation that weren't in the research, the right move is to reset the implementation and go back to research with what you now know. The [advanced track](../3-advanced/) covers how to handle that loop.
 
 ## What did we just do?
 
@@ -103,4 +103,4 @@ We produced the ultimate ticket before writing any code:
 
 Each phase built on the last, and we stayed in control of the decisions that matter.
 
-Ready for more structure? Move on to the [Intermediate Guide](2-intermediate.md).
+Ready for more structure? Move on to the [Intermediate Guide](../2-intermediate/).
