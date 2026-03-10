@@ -53,7 +53,7 @@ If the gate says "ITERATE", cook loops back automatically. When it says "DONE", 
 ## Plan — One cook command
 
 ```bash
-cook "Read CONTRIBUTING.md for context. Read plans/x7k-dark-mode/research.md for decisions and context. Write plans/x7k-dark-mode/plan.md detailing the implementation approach."
+cook "Read plans/x7k-dark-mode/research.md for decisions and context. Write plans/x7k-dark-mode/plan.md per CONTRIBUTING.md."
 ```
 
 **Human:Review** — Read the plan, approve or edit.
