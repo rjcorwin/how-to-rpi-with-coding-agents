@@ -6,7 +6,7 @@ Builds on the [intermediate track](2-intermediate.md) by automating the AI work-
 
 - Complete the [intermediate track](2-intermediate.md) (or at least read it — you need to understand the loop you're automating)
 - Read [CONTRIBUTING.md](https://gist.github.com/rjcorwin/296885590dc8a4ebc64e70879dc04a0f)
-- Install [cook](https://github.com/rjcorwin/cook): `npm install -g @anthropic/cook`
+- Install [cook](https://github.com/rjcorwin/cook): `npm install -g @let-it-cook/cook`
 - Run `cook doctor` to verify your setup
 
 ## Step 0: Generate the todo app
