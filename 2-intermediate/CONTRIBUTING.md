@@ -1,6 +1,6 @@
 # Contributing
 
-A Research-Plan-Implement (RPI) workflow for AI-assisted software development with human-in-the-loop checkpoints. This document serves as a reference for both AIs and humans, ensuring quality through structured research, planning, and implementation phases, each with AI self-review and human approval gates.
+A Research-Plan-Implement (RPI) workflow for AI-assisted software development with human-in-the-loop checkpoints. This document serves as a reference for both AIs and humans, ensuring quality through structured research, planning, and implementation phases, with AI self-review applied to implementation.
 
 Learn about the theory behind RPI from Dax: https://www.youtube.com/watch?v=rmvDxxNubIg
 
@@ -12,18 +12,14 @@ Each step is labeled as **[entity]:[task]** where entity is either `AI` or `Huma
 
 1. **Research**
    - **AI:Work** Write research.md detailing requirements, system architecture, and exploring decisions
-   - **AI:Review** Write research-review-NNN.md
-   - **AI:Gate** Needs revision? If yes, go back to 1:AI:Work, else continue
    - **Human:Review** Approve research findings and decisions before proceeding to Plan
 
 2. **Plan**
    - **AI:Work** Write plan.md detailing the changes we plan to make given decisions in research.md
-   - **AI:Review** Write plan-review-NNN.md
-   - **AI:Gate** Needs revision? If yes, go back to 2:AI:Work, else continue
    - **Human:Review** Approve plan before proceeding to Implement
 
 3. **Implement**
-   - **AI:Work** Implement the plan.md (or plan-NNN.md if revising) and then write devlog-NNN.md covering what was done, tricky, and decisions made during implementation
+   - **AI:Work** Implement the plan.md (or plan-NNN.md if revising) and then write devlog-NNN.md covering what was done, tricky parts, and decisions made during implementation
    - **AI:Review** Review the implementation in a code-review-NNN.md
    - **AI:Gate** Needs revision? If yes, write plan-NNN.md and go back to 3:AI:Work, else write pr.md and continue
    - **Human:Review** Final approval of implementation
@@ -39,9 +35,7 @@ File/folder naming conventions:
 Location: `plans/XXX-name/`
 Files:
 - `research.md` - Requirements, system architecture, constraints, prior art
-- `research-review-NNN.md` - AI self-review of research findings
 - `plan.md` - Main spec with motivation, goals, design, and implementation approach
-- `plan-review-NNN.md` - AI self-review when iterating on plan
 - `decision-XXX-name.md` - Optional ADR-style decisions as needed
 - `devlog-NNN.md` - Implementation journal: what was done, tricky parts, decisions made
 - `code-review-NNN.md` - AI self-review when iterating on code during implementation
@@ -58,31 +52,11 @@ Requirements: [paste requirements or link to issue]
 Write research.md covering requirements, system architecture, constraints, prior art, and open questions.
 ```
 
-### 1:AI:Review (Research Review)
-```
-Read CONTRIBUTING.md for context. Review research.md and write research-review-NNN.md following the template.
-```
-
-### 1:AI:Gate (Research Gate)
-```
-Read CONTRIBUTING.md for context. Read research.md and research-review-NNN.md. Are there any High gaps or unresolved questions? If yes, summarize what needs revision. If no, confirm ready for human review.
-```
-
 ### 2:AI:Work (Plan)
 ```
 Read CONTRIBUTING.md for context. Read research.md for decisions and context.
 
 Write plan.md detailing the implementation approach.
-```
-
-### 2:AI:Review (Plan Review)
-```
-Read CONTRIBUTING.md for context. Review plan.md against research.md and write plan-review-NNN.md following the template.
-```
-
-### 2:AI:Gate (Plan Gate)
-```
-Read CONTRIBUTING.md for context. Read plan.md and plan-review-NNN.md. Are there any High concerns? If yes, summarize what needs revision. If no, confirm ready for human review.
 ```
 
 ### 3:AI:Work (Implement)
@@ -210,72 +184,6 @@ Read CONTRIBUTING.md for context. Read devlog-NNN.md and code-review-NNN.md. Are
 
 ### Neutral
 - [Other effects]
-```
-
-### research-review-NNN.md
-```markdown
-# Research Review: [Brief Title]
-
-**Reviewer:** AI
-**Date:** [Date]
-**Reviewing:** research.md
-
-## Summary
-[One paragraph assessment of the research]
-
-## Strengths
-- [What the research does well]
-
-## Gaps
-
-### High
-- [Critical missing information that blocks planning]
-
-### Medium
-- [Important gaps that should be addressed]
-
-### Low
-- [Nice-to-have information]
-
-## Questions
-- [Clarifications needed before planning]
-
-## Recommendation
-[ ] Ready for human review
-[ ] Needs revision (see gaps/questions above)
-```
-
-### plan-review-NNN.md
-```markdown
-# Plan Review: [Brief Title]
-
-**Reviewer:** AI
-**Date:** [Date]
-**Reviewing:** plan.md (or plan-NNN.md)
-
-## Summary
-[One paragraph assessment of the plan]
-
-## Strengths
-- [What the plan does well]
-
-## Concerns
-
-### High
-- [Critical issues that could cause failure]
-
-### Medium
-- [Significant risks or unclear areas]
-
-### Low
-- [Minor issues or suggestions]
-
-## Suggestions
-- [Improvements or alternatives to consider]
-
-## Recommendation
-[ ] Ready for human review
-[ ] Needs revision (see concerns/suggestions above)
 ```
 
 ### devlog-NNN.md

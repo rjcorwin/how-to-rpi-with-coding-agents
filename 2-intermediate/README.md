@@ -1,15 +1,15 @@
 # RPI Guide: Intermediate
 
-The [beginner track](../1-beginner/) gave you the shape of RPI — research, plan, implement — with you reviewing the output at each phase. That works, but it has a problem: the first pass from a coding agent often has gaps — missing context, shallow analysis, overlooked edge cases. You might catch them in review. You might not. Either way, it's your time spent on something the AI could have caught itself.
+The [beginner track](../1-beginner/) gave you the shape of RPI — research, plan, implement — with you reviewing the output at each phase. The intermediate track builds on that with three additions:
 
-The intermediate track fixes this by wrapping each phase in a work-review-gate loop (that we'll refer to as a cook loop). Before you ever look at the output, the AI reviews its own work and decides if it's ready. You only step in once the loop says it's done. Alongside this, we introduce structured plan folders and a [CONTRIBUTING.md](https://gist.github.com/rjcorwin/296885590dc8a4ebc64e70879dc04a0f) with templates — so every feature has a consistent home for its research, decisions, and implementation history.
-
-Running the loop manually means a fair amount of prompting. That's intentional here — understanding each step makes the process legible before you automate it. The [advanced track](../3-advanced/) handles the loops for you.
+- **Decision docs** — when an open question is too complex to answer off the top of your head, you ask the agent to write a decision doc laying out the options with pros and cons before you commit
+- **Structured plan folders** — the repo gets a CONTRIBUTING.md defining the workflow and templates, and every feature gets a plan folder to keep its research, decisions, and implementation history together
+- **Implementation review loop** — after the agent implements, it reviews its own code and decides if it's ready before you spend time on it
 
 ## Prerequisites
 
 - Complete the [beginner track](../1-beginner/) or understand the basics of Research, Plan, Implement
-- Read [CONTRIBUTING.md](https://gist.github.com/rjcorwin/296885590dc8a4ebc64e70879dc04a0f) — it defines the full file structure, workflow steps, and templates used in this track
+- Read CONTRIBUTING.md (in this folder) — it defines the full file structure, workflow steps, and templates used in this track
 
 ## Step 0: Generate the todo app
 
@@ -25,16 +25,11 @@ Create a simple todo app using HTML, CSS, and vanilla JavaScript in a single ind
 Every feature gets its own plan folder and git branch. This keeps research, planning, and implementation artifacts organized and tied to a PR.
 
 ```bash
-curl https://gist.githubusercontent.com/rjcorwin/296885590dc8a4ebc64e70879dc04a0f/raw/46035954b5a0423c0c62b96c3ff8e9295169bf4f/CONTRIBUTING.md > CONTRIBUTING.md
 mkdir -p plans/x7k-dark-mode
 git checkout -b x7k-dark-mode
 ```
 
-> **Don't want CONTRIBUTING.md in your repo?** You can add these workflow instructions as a Claude skill instead — just ask Claude to do it for you.
-
 ## Research
-
-Each step runs in a fresh context. Run `/clear` between them.
 
 ### AI:Work — Write research.md
 
@@ -47,46 +42,32 @@ Requirements:
 - The toggle should be visible and accessible
 - Theme preference should persist across page reloads
 
-Read the existing codebase first, create a new plan folder and research.md per CONTRIBUTING.md.
+Read the existing codebase first, then write plans/x7k-dark-mode/research.md per CONTRIBUTING.md.
 ```
 
 Same output expectations as the beginner track, but now following the structured template from CONTRIBUTING.md.
 
 **Run `/clear`.**
 
-### AI:Review — Write research review
-
-**Prompt:**
-```
-Review plans/x7k-dark-mode/research.md and write a research review in the plan folder per CONTRIBUTING.md.
-```
-
-The review should flag:
-- Any **High** gaps (critical missing info that blocks planning)
-- **Medium** gaps (important but not blocking)
-- **Low** gaps (nice-to-have)
-
-**Run `/clear`.**
-
-### AI:Gate — Should we revise?
-
-**Prompt:**
-```
-Read plans/x7k-dark-mode/research.md and the latest research review in plans/x7k-dark-mode/. Are there any High gaps or unresolved questions? If yes, summarize what needs revision. If no, confirm ready for human review.
-```
-
-If the gate says revision is needed, run `/clear`, go back to AI:Work, and have the AI address the gaps. If it passes, move on.
-
 ### Human:Review — Your turn
 
-Read the research document and any decision files in the plan folder. For each open question, pick an option and have the agent record it:
+Read the research document. For straightforward questions, just pick an option and record it:
 
 **Prompt:**
 ```
 Go with localStorage. Update plans/x7k-dark-mode/research.md to record this decision under the open questions section.
 ```
 
-Repeat for each open question until every decision is recorded in the research doc.
+For harder questions, ask the agent to write a decision doc first so you can explore the options in depth:
+
+**Prompt:**
+```
+Write a decision doc in plans/x7k-dark-mode/ for the toggle placement question per CONTRIBUTING.md.
+```
+
+Read the decision doc, pick an option, then record it in research.md. Repeat for each open question until every decision is resolved.
+
+**Run `/clear`.**
 
 ## Plan
 
@@ -94,28 +75,10 @@ Repeat for each open question until every decision is recorded in the research d
 
 **Prompt:**
 ```
-Read the research.md and then write the plan.md for plans/x7k-dark-mode per CONTRIBUTING.md
+Read plans/x7k-dark-mode/research.md for decisions and context. Write plans/x7k-dark-mode/plan.md per CONTRIBUTING.md.
 ```
 
 **Run `/clear`.**
-
-### AI:Review — Write plan review
-
-**Prompt:**
-```
-Review the latest plan in plans/x7k-dark-mode/ against plans/x7k-dark-mode/research.md and write a plan review in the plan folder per CONTRIBUTING.md.
-```
-
-**Run `/clear`.**
-
-### AI:Gate — Should we revise?
-
-**Prompt:**
-```
-Read the latest plan and latest plan review in plans/x7k-dark-mode/. Are there any High concerns? If yes, summarize what needs revision. If no, confirm ready for human review.
-```
-
-If the gate says revision is needed, run `/clear`, go back to AI:Work, and address the gaps. If it passes, move on.
 
 ### Human:Review — Approve the plan
 
@@ -125,14 +88,16 @@ Read the plan. Does it match your research decisions? Is anything overcomplicate
 
 ## Implement
 
+This is where the cook loop comes in. Each step runs in a fresh context — run `/clear` between them.
+
 ### AI:Work — Implement and write devlog
 
 **Prompt:**
 ```
-Go forth and implement the plan in plan/x7k-dark-mode/plan.md. When done, write a new devlog in the plan folder per CONTRIBUTING.md covering what was done, tricky parts, and any decisions made.
+Read plans/x7k-dark-mode/plan.md. Implement the plan. When done, write a new devlog in the plan folder per CONTRIBUTING.md covering what was done, tricky parts, and any decisions made.
 ```
 
-The devlog replaces the manual debrief from the beginner track — instead of asking "what was tricky?" after the fact, the agent documents it as a persistent artifact of the process.
+The devlog replaces the manual debrief from the beginner track — instead of asking "what was tricky?" after the fact, the agent documents it as a persistent artifact.
 
 **Run `/clear`.**
 
@@ -140,7 +105,7 @@ The devlog replaces the manual debrief from the beginner track — instead of as
 
 **Prompt:**
 ```
-Review the implementation against plans/x7k-dark-mode/plan.md, read the latest devlog in the plan for context on how implementation went, read through the implementation's code changes, and then write a code review file in the plan folder per CONTRIBUTING.md
+Review the implementation against plans/x7k-dark-mode/plan.md, read the latest devlog in the plan for context on how implementation went, read through the implementation's code changes, and then write a code review file in the plan folder per CONTRIBUTING.md.
 ```
 
 **Run `/clear`.**
@@ -151,6 +116,8 @@ Review the implementation against plans/x7k-dark-mode/plan.md, read the latest d
 ```
 Read the latest devlog and latest code review in plans/x7k-dark-mode/. Are there any High issues? If yes, write a new plan in the plan folder with fixes needed per CONTRIBUTING.md. If no, write plans/x7k-dark-mode/pr.md and confirm ready for human review.
 ```
+
+If the gate says revision is needed, run `/clear`, go back to AI:Work with the new plan, and loop again. If it passes, move on.
 
 ### Human:Review — Final approval
 
