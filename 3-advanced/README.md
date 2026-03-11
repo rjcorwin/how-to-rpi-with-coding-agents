@@ -84,8 +84,10 @@ Each cook command handles the work-review-gate cycle for that step. You review b
 For a plan with N steps, this becomes a simple loop if you want to let it run and review the results of all phases. This is referred to as a "Ralph Wiggum Loop", or simply ralph loop:
 
 ```bash
-for step in 1 2 3; do cook "Read plans/x7k-dark-mode/plan.md. Implement step $step and then write a devlog per CONTRIBUTING.md"; done
+for step in {1..3}; do cook "Read plans/x7k-dark-mode/plan.md. Implement step $step and then write a devlog per CONTRIBUTING.md"; done
 ```
+
+`{1..3}` is bash brace expansion — it generates `1 2 3`. Change the range to match however many steps your plan has (e.g., `{1..7}`). If cook hits its max iterations (default is 3) without the gate passing, it exits with an error and the loop breaks — this prevents moving on from a step with a broken implementation. When that happens, review the devlogs and review files to find out what went wrong.
 
 ## What changed from intermediate?
 
