@@ -1,12 +1,15 @@
 # RPI Guide: Advanced
 
-Builds on the [intermediate track](../2-intermediate/) by automating the AI work-review-gate cycles using the [cook](https://github.com/rjcorwin/cook) CLI. Instead of manually running three prompts per phase, you run one command and cook loops the agent through work, review, and gate until it's satisfied.
+Builds on the [intermediate track](../2-intermediate/) with two additions:
+
+- **Review loops on every phase** — The intermediate track introduced the work-review-gate loop for implementation. Here, we extend the same pattern to research and plan. The CONTRIBUTING.md for this track adds `research-review-NNN.md`, `plan-review-NNN.md`, and their corresponding gate steps.
+- **Cook automation** — Instead of manually running three prompts (work, review, gate) per phase, the [cook](https://github.com/rjcorwin/cook) CLI runs one command and loops the agent through the cycle until it's satisfied.
 
 ## Prerequisites
 
-- Complete the [intermediate track](../2-intermediate/) (or at least read it — you need to understand the loop you're automating)
-- Read [CONTRIBUTING.md](https://gist.github.com/rjcorwin/296885590dc8a4ebc64e70879dc04a0f)
-- Install [cook](https://github.com/rjcorwin/cook): `npm install -g @let-it-cook/cook`
+- Complete the [intermediate track](../2-intermediate/) (or at least read it — you need to understand the plan folder structure and the implementation review loop you saw there)
+- Read [CONTRIBUTING.md](https://gist.github.com/rjcorwin/296885590dc8a4ebc64e70879dc04a0f) — note the new review/gate steps on Research and Plan compared to the intermediate version
+- Install [cook](https://github.com/rjcorwin/cook): `npm install -g @let-it-cook/cli`
 - Run `cook doctor` to verify your setup
 
 ## Step 0: Generate the todo app
@@ -26,9 +29,11 @@ mkdir -p plans/x7k-dark-mode
 git checkout -b x7k-dark-mode
 ```
 
+This is the same plan folder setup from the intermediate track. The difference is the CONTRIBUTING.md you're downloading — it now defines review and gate steps for all three phases, not just implementation.
+
 ## Research — One cook command
 
-In the intermediate track, the research phase was three manual prompts (work, review, gate) with potential loops back. Cook automates this entire cycle:
+In the intermediate track, research was a single AI:Work prompt followed by your review. Now CONTRIBUTING.md defines a full work-review-gate cycle for research too — the AI writes `research.md`, reviews it in `research-review-001.md`, and gates whether it needs another pass. Cook automates this entire cycle:
 
 ```bash
 cook "We're going to add a dark mode / light mode toggle to our todo app.
@@ -43,7 +48,7 @@ Read the existing codebase first, then write plans/x7k-dark-mode/research.md per
 
 Cook will:
 1. **Work** — The agent writes `research.md`
-2. **Review** — A second pass reviews the output and flags issues
+2. **Review** — A second pass reviews the output in `research-review-001.md` and flags gaps
 3. **Gate** — A third pass decides if the review passes or if the agent needs to iterate
 
 If the gate says "ITERATE", cook loops back automatically. When it says "DONE", you get the result.
@@ -51,6 +56,8 @@ If the gate says "ITERATE", cook loops back automatically. When it says "DONE", 
 **Human:Review** — You still make the decisions. For each open question, ask the AI to present options with pros and cons, pick one, and have the agent update `research.md` with your decision. (Same process as the [beginner](../1-beginner/#making-decisions) and [intermediate](../2-intermediate/#humanreview--your-turn) tracks.)
 
 ## Plan — One cook command
+
+Same expansion here. In the intermediate track, planning was a single AI:Work prompt. Now it gets the full work-review-gate cycle too — the AI writes `plan.md`, reviews it in `plan-review-001.md`, and gates whether it needs revision.
 
 ```bash
 cook "Read plans/x7k-dark-mode/research.md for decisions and context. Write plans/x7k-dark-mode/plan.md per CONTRIBUTING.md."
@@ -60,7 +67,9 @@ cook "Read plans/x7k-dark-mode/research.md for decisions and context. Write plan
 
 ## Implement — Cook loop over plan phases
 
-Here's where it gets powerful. If your plan has multiple phases or steps, you can run cook once per phase, letting it handle the iteration within each:
+You already saw the implementation review loop in the intermediate track — work, review, gate with `devlog-NNN.md` and `code-review-NNN.md`. The loop is the same here, but now cook runs it for you.
+
+If your plan has multiple phases or steps, you can run cook once per phase, letting it handle the iteration within each:
 
 ```bash
 cook "Read CONTRIBUTING.md for context. Read plans/x7k-dark-mode/plan.md. Implement step 1: [description]. When done, write plans/x7k-dark-mode/devlog-001.md."
@@ -86,12 +95,14 @@ done
 
 | | Intermediate | Advanced |
 |---|---|---|
-| Work-review-gate | 3 manual prompts per phase | 1 cook command per phase |
+| Research review loop | None — AI:Work then Human:Review | Work-review-gate, automated by cook |
+| Plan review loop | None — AI:Work then Human:Review | Work-review-gate, automated by cook |
+| Implementation review loop | 3 manual prompts (work, review, gate) | 1 cook command per phase |
 | Iteration on failures | You re-run prompts manually | Cook loops automatically |
 | Human checkpoints | Same | Same — you still review between phases |
 | Plan execution | One big implement prompt | One cook command per plan step |
 
-The human checkpoints don't change. You still make the decisions, review the research, approve the plan, and test the implementation. Cook just removes the mechanical overhead of running the agent loop yourself.
+The human checkpoints don't change. You still make the decisions, review the research, approve the plan, and test the implementation. Cook just removes the mechanical overhead of running the agent loop yourself — and now that overhead extends to research and planning too, where the intermediate track didn't have review loops at all.
 
 ## Iterating back to Research
 
