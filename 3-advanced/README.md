@@ -33,7 +33,7 @@ This is the same plan folder setup from the intermediate track. The difference i
 
 ## Research — One cook command
 
-In the intermediate track, research was a single AI:Work prompt followed by your review. Now CONTRIBUTING.md defines a full work-review-gate cycle for research too — the AI writes `research.md`, reviews it in `research-review-001.md`, and gates whether it needs another pass. Cook automates this entire cycle:
+In the intermediate track, research was a single AI:Work prompt followed by your review. Now CONTRIBUTING.md defines a full work-review-gate cycle for research too — the AI writes `research.md`, reviews it in `research-review-001.md`, and gates whether it needs another pass. This matters because research is where the system architecture gets documented and open questions get surfaced — it's not worth your time to review until the AI has had a chance to double-check its own work. The review loop lets it catch incomplete architecture analysis or missing questions before it reaches you. Cook automates this entire cycle:
 
 ```bash
 cook "We're going to add a dark mode / light mode toggle to our todo app.
@@ -81,14 +81,10 @@ cook "Read CONTRIBUTING.md for context. Read plans/x7k-dark-mode/plan.md and pla
 
 Each cook command handles the work-review-gate cycle for that step. You review between steps — checking the devlog and the code — and move on when satisfied.
 
-For a plan with N steps, this becomes a simple loop:
+For a plan with N steps, this becomes a simple loop if you want to let it run and review the results of all phases. This is referred to as a "Ralph Wiggum Loop", or simply ralph loop:
 
 ```bash
-for step in 1 2 3; do
-  cook "Read CONTRIBUTING.md for context. Read plans/x7k-dark-mode/plan.md. Implement step $step. Update plans/x7k-dark-mode/devlog-001.md."
-  echo "Review step $step, then press enter to continue"
-  read
-done
+for step in 1 2 3; do cook "Read plans/x7k-dark-mode/plan.md. Implement step $step and then write a devlog per CONTRIBUTING.md"; done
 ```
 
 ## What changed from intermediate?
