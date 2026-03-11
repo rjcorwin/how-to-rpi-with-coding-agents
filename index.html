@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>RPI with Coding Agents</title>
+  <style>
+    :root {
+      --bg: #ffffff;
+      --fg: #1a1a1a;
+      --accent: #2563eb;
+      --muted: #6b7280;
+      --border: #e5e7eb;
+      --code-bg: #f3f4f6;
+      --nav-bg: #f9fafb;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #111827;
+        --fg: #f3f4f6;
+        --accent: #60a5fa;
+        --muted: #9ca3af;
+        --border: #374151;
+        --code-bg: #1f2937;
+        --nav-bg: #1a2332;
+      }
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--fg);
+      line-height: 1.7;
+    }
+    nav {
+      background: var(--nav-bg);
+      border-bottom: 1px solid var(--border);
+      padding: 0.75rem 1.5rem;
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    nav a {
+      color: var(--accent);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+    nav a:hover { text-decoration: underline; }
+    nav .brand {
+      font-weight: 700;
+      font-size: 1rem;
+      color: var(--fg);
+      margin-right: auto;
+    }
+    main {
+      max-width: 48rem;
+      margin: 2rem auto;
+      padding: 0 1.5rem;
+    }
+    h1 { font-size: 2rem; margin: 1.5rem 0 1rem; }
+    h2 { font-size: 1.5rem; margin: 2rem 0 0.75rem; border-bottom: 1px solid var(--border); padding-bottom: 0.3rem; }
+    h3 { font-size: 1.17rem; margin: 1.5rem 0 0.5rem; }
+    p { margin: 0.75rem 0; }
+    a { color: var(--accent); }
+    ul, ol { margin: 0.75rem 0; padding-left: 1.5rem; }
+    li { margin: 0.25rem 0; }
+    code {
+      background: var(--code-bg);
+      padding: 0.15rem 0.35rem;
+      border-radius: 3px;
+      font-size: 0.9em;
+    }
+    pre {
+      background: var(--code-bg);
+      padding: 1rem;
+      border-radius: 6px;
+      overflow-x: auto;
+      margin: 1rem 0;
+    }
+    pre code { background: none; padding: 0; }
+    blockquote {
+      border-left: 3px solid var(--accent);
+      padding: 0.5rem 1rem;
+      margin: 1rem 0;
+      color: var(--muted);
+    }
+    table { border-collapse: collapse; margin: 1rem 0; width: 100%; }
+    th, td { border: 1px solid var(--border); padding: 0.5rem 0.75rem; text-align: left; }
+    th { background: var(--code-bg); }
+    strong { font-weight: 600; }
+    hr { border: none; border-top: 1px solid var(--border); margin: 2rem 0; }
+  </style>
+</head>
+<body>
+  <nav>
+    <span class="brand">RPI with Coding Agents</span>
+    <a href="index.html">Home</a>
+    <a href="1-beginner.html">Beginner</a>
+    <a href="2-intermediate.html">Intermediate</a>
+    <a href="3-advanced.html">Advanced</a>
+    <a href="https://gist.github.com/rjcorwin/296885590dc8a4ebc64e70879dc04a0f">Contributing</a>
+  </nav>
+  <main>
+<h1>RPI with Coding Agents</h1>
+<p>Research, Plan, Implement (RPI) is a methodology for writing software with Agentic Coding Tools. Instead of prompting an AI to implement and hoping for the best, we break the work into phases where the AI helps us understand, decide, and then build.</p>
+<ol>
+<li><strong>Research</strong> — With AI&#39;s help, we create what equates to the ultimate ticket:<ol>
+<li>The request</li>
+<li>Documentation for the related parts of the code</li>
+<li>Decisions we need to make</li>
+</ol>
+</li>
+<li><strong>Plan</strong> — We document the code changes required.</li>
+<li><strong>Implement</strong> — We have the AI coding agent implement the plan.</li>
+</ol>
+<h2>Why not just prompt and implement?</h2>
+<p>Prompting to implement has been equated to a slot machine. You keep pulling hoping to get lucky. When it doesn&#39;t give you the results you want, you start pulling again with prompts like &quot;No not that, this&quot;, and the agent responds, &quot;Of course!&quot;.</p>
+<p>What is happening during this spiral:
+0. The models are trained to do what you request, and their praise of the request is sycophantic.</p>
+<ol>
+<li>Complexity of the code base is increasing on each pull (spaghettification)</li>
+<li>Context window of the agent is filling up so it&#39;s getting dumber</li>
+<li>Some speculate that it is in-context learning to give you bad results</li>
+</ol>
+<p>The goal of some up front planning is to minimize rework to prevent spirals.</p>
+<h2>What is our role?</h2>
+<p>LLMs seem impressive and all-knowing, but they are not replacing us. We must be the decision makers for two reasons.</p>
+<ol>
+<li>They lack the context of your organization, we provide it<ul>
+<li>They are a new person on the job — they don&#39;t know what they don&#39;t know</li>
+<li>Every decision in software development requires organizational context: team conventions, business constraints, historical decisions, dependencies, user needs</li>
+<li>LLMs cannot hold that context in their heads — it&#39;s not in the training data, and it won&#39;t fit in a single prompt</li>
+</ul>
+</li>
+<li>Humans provide the engineering — LLMs provide pattern matching on what they&#39;ve been trained on<ul>
+<li>If the solution you need is outside the distribution of what the LLM has seen, its ability to engineer is quite limited</li>
+<li>Anything truly novel — something that has never been created before — requires human engineering judgment</li>
+<li>The LLM can help with the parts that look like things it&#39;s seen, but the creative leaps and novel architecture are yours</li>
+</ul>
+</li>
+</ol>
+<h2>Tracks</h2>
+<p>This walkthrough comes in three levels. Pick the one that fits:</p>
+<ul>
+<li><strong><a href="1-beginner/">Beginner</a></strong> — Simplified prompts, flat file structure, no agent review loops. Good for getting the feel of RPI.</li>
+<li><strong><a href="2-intermediate/">Intermediate</a></strong> — Adds structured plan folders, <a href="https://gist.github.com/rjcorwin/296885590dc8a4ebc64e70879dc04a0f">CONTRIBUTING.md</a> conventions, and AI self-review loops. Good for real projects.</li>
+<li><strong><a href="3-advanced/">Advanced</a></strong> — Automates the agent review cycles using the <a href="https://github.com/rjcorwin/cook">cook</a> CLI. Good for when you trust the process and want speed.</li>
+</ul>
+<p>Learn about the theory behind RPI from Dax: <a href="https://www.youtube.com/watch?v=rmvDxxNubIg">https://www.youtube.com/watch?v=rmvDxxNubIg</a></p>
+  </main>
+</body>
+</html>
